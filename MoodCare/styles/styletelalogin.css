@@ -1,0 +1,88 @@
+body {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin: 0%;
+} 
+#formulario {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background-color:#BCA4DD;
+    align-items: center;
+    width: 400px;
+    margin-top: 100px;
+    border-radius: 21px;
+    box-shadow: 0px 0px 8px rgb(91, 49, 126);
+}
+#banner{
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+}
+#ladodireito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color:#e0bfee;
+}
+p {
+    display: flex;
+    flex-direction: column;
+    color: #EEDBF9;
+    margin: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+    background-color: #EEDBF9;
+    border: 0;
+    border-radius: 13px;
+    height: 30px;
+    width:250px;
+    outline: none;
+    padding-left: 5px;
+    margin: 0px;
+}
+button{
+    background-color: #EEDBF9;
+    border: 0;
+    border-radius: 10px;
+    height: 30px;
+    width: 75px;
+    color: #A986D8;
+    margin-bottom: 10px;
+
+}
+.entrar :hover{
+    background-color: #B288E9;
+    color: #EEDBF9;
+}
+#logo{
+    width:100px;
+    height:100px;
+}
+h1{
+    height:20px;
+    font-size: 20px;
+    margin:0;
+    padding: 0%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    color: #EEDBF9;
+}
+#mensagem-erro {
+    background-color: #ffe6e6c3;
+    color: #d8000c;
+    border: 1px solid #d8000b66;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 8px rgba(216, 0, 0, 0.2);
+}
