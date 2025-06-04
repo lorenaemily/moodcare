@@ -13,7 +13,7 @@
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $email = $_POST["email"] ?? '';
+            $email =trim($_POST["email"] ?? '');
             $senha = $_POST["senha"] ?? '';
 
             if(empty($email) && empty($senha)){
@@ -24,21 +24,27 @@
                 $erro = "preencha seu email";
             } else {
                 
-               $stmt = $conexao->prepare("SELECT * FROM usuario WHERE email_usuario = :email AND senha_usuario = :senha");
+               $stmt = $conexao->prepare("SELECT * FROM usuario WHERE email_usuario = :email");
 
                $stmt->bindParam(":email",$email);
-               $stmt->bindParam(":senha",$senha);
                $stmt->execute();
 
               if($stmt->rowCount()=== 1){
 
                 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-                $_SESSION["id"] = $usuario["id_usuario"];
-                $_SESSION["email"] = $usuario["email_usuario"];
-                header("Location: telainicial.php");
-                exit();
-              } else {
-                    $erro = "Falha ao logar: nome, email ou senha incorretos.";
+                if(password_verify($senha,$usuario["senha_usuario"])) {
+
+                    $_SESSION["id"] = $usuario["id_usuario"];
+                    $_SESSION["email"] = $usuario["email_usuario"];
+                    header("Location: telainicial.php");
+                    exit();
+
+                } else {
+                    $erro = "senha incorreta.";
+
+                }
+            } else {
+                    $erro = "Email não encontrado.";
               }
             }
         }
@@ -55,12 +61,12 @@
             <?php endif; ?>
             <p>
                 <label>Email:</label>
-                <input type="text" name="email" id = "email" >   
+                <input type="email" name="email" id = "email" required>   
             </p>
 
             <p>
                 <label>Senha:</label>
-                <input type="password" name="senha" id = "senha" >   
+                <input type="password" name="senha" id = "senha" required>   
             </p>
 
             <p class = "entrar">
