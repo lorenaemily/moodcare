@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logando</title>
+    <title>cadastrando</title>
     <link rel="stylesheet" href="styles/styletelalogin.css">
 </head>
 <body>
@@ -27,11 +27,11 @@
                 $erro = "preencha seu nome";
             } else {
 
-                $stmt = $conexao->prepare("SELECT * FROM usuario WHERE email_usuario = :email");
-                $stmt->bindParam(":email",$email);
-                $stmt->execute();
+                $stmtverifica = $conexao->prepare("SELECT * FROM usuario WHERE email_usuario = :email");
+                $stmtverifica->bindParam(":email",$email);
+                $stmtverifica->execute();
 
-                if($stmt->rowCount() > 0){
+                if($stmtverifica->rowCount() > 0){
                     $erro = "Email já cadastrado.";
                 } else {
                 
@@ -80,8 +80,12 @@
 
             <p>
                 <label>Senha:</label>
-                <input type="password" name="senha" id = "senha" required minlength="4" maxlength="10">   
+                <input type="password" name="senha" id = "senha" required >   
             </p>
+
+            <div id="link-login">
+                Já possui uma conta? <a href="telalogin.php"> Faça login</a>
+            </div>
 
             <p class = "entrar">
                 <button type="submit" class = "entrar">Cadastrar</button>

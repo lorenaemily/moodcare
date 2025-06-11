@@ -69,6 +69,10 @@
                 <input type="password" name="senha" id = "senha" required>   
             </p>
 
+            <div id="link-login">
+            ainda não possui uma conta ? <a href="telacadastro.php"> Faça o seu cadastro</a>
+            </div>
+
             <p class = "entrar">
                 <button type="submit" class = "entrar">Entrar</button>
             </p>

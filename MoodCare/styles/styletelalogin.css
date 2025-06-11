@@ -58,6 +58,16 @@ button{
     background-color: #B288E9;
     color: #EEDBF9;
 }
+
+#link-login {
+    color: #EEDBF9;
+    display: flex;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    justify-content: center;
+    margin: 0px;
+}
+
 #logo{
     width:100px;
     height:100px;

@@ -1,0 +1,150 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+   text-decoration: none;
+   color: none; 
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f8fb;
+  color: #333;
+}
+
+/* Menu Lateral */
+.menulateral {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+}
+
+.menulateral h1 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color:ffffff;
+  text-align: center;
+  font-weight: normal;
+}
+
+.menulateral img {
+  width: 35px;
+  height: 35px;
+}
+
+.menulateral ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  width: 100%;
+  gap: 30px;
+}
+
+.menulateral li a{
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.menulateral ul li img {
+  width: 24px;
+  margin-right: 5px;
+}
+
+.menulateral ul li p {
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.menulateral  div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 150px;
+
+}
+
+.menulateral > div a {
+  text-decoration: none;
+  font-size: 24px;
+  padding-left: 10px;
+}
+/* Conteúdo Principal */
+.conteudo {
+  padding: 10px;
+  margin: 10px;
+  align-items: center;
+  width: 100%;
+}
+#recepcao{
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding:10px;
+}
+
+#recepcao p{
+    font-size: 32px;
+    font-weight:normal;
+}
+
+#recepcao img{
+    height: 50px;
+    width: 50px;
+}
+
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 40%;
+    height:300px;
+}
+
+.conteudo section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.conteudo section div img {
+  width: 60px;
+  height: 60px;
+}
+
+.conteudo div img {
+  width: 40px;
+  height: 40px;
+}
+
+.conteudo section div p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.conteudo div p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+
+
