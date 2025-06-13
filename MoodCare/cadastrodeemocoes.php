@@ -26,9 +26,11 @@
     session_start();
     $emocao = $_POST['nome_emocao'] ?? '';
     $registro = $_POST['registro'] ?? '';
-    $stmt = $conexao->prepare("INSERT INTO emocoes (nome_emocao, registro_emocional) VALUES (:nome_emocao, :registro_emocional)");
+    $id_usuario = $_SESSION['id'] ?? '';
+    $stmt = $conexao->prepare("INSERT INTO emocoes (nome_emocao, registro_emocional, id_usuario) VALUES (:nome_emocao, :registro_emocional,:id_usuario)");
     $stmt->bindParam(":registro_emocional", $registro);
     $stmt->bindParam(":nome_emocao", $emocao);
+    $stmt->bindParam(":id_usuario", $id_usuario);
     if ($stmt->execute()) {
         echo "Emoção cadastrada com sucesso!";
     } else {

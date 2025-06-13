@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="http://localhost/MoodCare/historicoemocional.php">
                     <img src="images/relogio.png" alt=""><p>Histórico de<br>Emoções</p>
                 </a>
             </li>
