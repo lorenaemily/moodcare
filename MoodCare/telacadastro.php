@@ -37,22 +37,29 @@
                 
                 $senhacriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
-               $stmt = $conexao->prepare("INSERT INTO usuario(nome_usuario, email_usuario, senha_usuario) VALUES (:nome, :email, :senha)");
+                $stmt = $conexao->prepare("INSERT INTO usuario(nome_usuario, email_usuario, senha_usuario) VALUES (:nome, :email, :senha)");
                
-               $stmt->bindParam(":nome",$nome);
-               $stmt->bindParam(":email",$email);
-               $stmt->bindParam(":senha",$senhacriptografada);
-               $stmt->execute();
+                $stmt->bindParam(":nome",$nome);
+                $stmt->bindParam(":email",$email);
+                $stmt->bindParam(":senha",$senhacriptografada);
+                $stmt->execute();
+                
+                $id_usuario = $conexao->lastInsertId();
+                $stmt = $conexao->prepare("INSERT INTO perfil_usuario (id_usuario_perfil, nome_usuario, meta_usuario, foto_usuario) VALUES         (:id_usuario_perfil, :nome, NULL, NULL)");
+                $stmt->bindParam(":id_usuario_perfil", $id_usuario);
+                $stmt->bindParam(":nome", $nome);
+                $stmt->execute();
 
-              if($stmt->rowCount()=== 1){
+                if($stmt->rowCount()=== 1){
 
-                $_SESSION["id"] = $conexao->lastInsertId();
-                $_SESSION["email"] = $email;
-                header("Location: telainicial.php");
-                exit();
-              } else {
-                    $erro = "Erro ao cadastrar, tente novamente. ";
-              }
+                    $_SESSION["id"] = $id_usuario;
+                    $_SESSION["nome"] = $nome;
+                    $_SESSION["email"] = $email;
+                    header("Location: telainicial.php");
+                    exit();
+                    } else {
+                        $erro = "Erro ao cadastrar, tente novamente. ";
+                    }
             }
         } 
     }
