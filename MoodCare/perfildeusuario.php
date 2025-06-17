@@ -65,8 +65,8 @@
                     <img src="<?php echo htmlspecialchars($perfil['foto_usuario']); ?>" alt="Foto de perfil" width="100">
                 <?php endif; ?>
 
-                <p><?php echo htmlspecialchars($perfil['nome_usuario'] ?? ''); ?></p>
-                <p>Metas:</p>
+                <p id="username"><?php echo htmlspecialchars($perfil['nome_usuario'] ?? ''); ?></p>
+                <p id="nome-meta">Metas:</p>
                 
                 <div id="meta">
                     <p placeholder="Escreva sua meta"><?php echo htmlspecialchars($perfil['meta_usuario'] ?? ''); ?></p>
