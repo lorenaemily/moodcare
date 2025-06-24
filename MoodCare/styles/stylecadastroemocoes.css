@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -13,8 +14,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   min-height: 100vh;
-  background-color: #f5f8fb;
-  color: #333;
+  color: #8862B9;
 }
 
 /* Menu Lateral */
@@ -23,12 +23,13 @@ body {
   display: flex;
   flex-direction: column;
   padding: 30px 20px;
+  background-color:rgb(220, 170, 248, 0.49);
+  color: #8862B9;
 }
 
 .menulateral h1 {
   font-size: 24px;
   margin-bottom: 30px;
-  color:ffffff;
   text-align: center;
   font-weight: normal;
 }
@@ -60,6 +61,7 @@ body {
 .menulateral ul li p {
   font-size: 24px;
   padding-left: 10px;
+  color: #8862B9;
 }
 
 .menulateral  div {
@@ -74,12 +76,14 @@ body {
   text-decoration: none;
   font-size: 24px;
   padding-left: 10px;
+  color: #8862B9;
 }
 
 /* conteudo */
 
 .conteudo {
-  background-color: #9904cf;
+  background-image:linear-gradient(to bottom, rgba(238, 219, 249, 1),rgba(224, 169, 255, 1));
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -89,10 +93,12 @@ body {
 .conteudo h1 {
     font-size: 24px;
     align-items:flex-start;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
 }
 
 #selecionando-emocoes {
-  background-color: #f5f8fb;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: none;
   font-size: 16px;
   height: 100%;
@@ -101,7 +107,7 @@ body {
   align-items: flex-start;
   padding: 20px;
   margin: 20px;
-  background-color: #fff;
+  background-color:rgba(205, 129, 248, 0.26);
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -132,7 +138,18 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #be8bdf;
+  background-color:rgba(255, 245, 245, 0.4);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+#cadastrar {
+  background-color:rgba(255, 245, 245, 0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 10px;
+  border-color: #8862B9;
+  border-width: 2px;
+  color: #8862B9;
+  font-weight: normal;
+}
+
 

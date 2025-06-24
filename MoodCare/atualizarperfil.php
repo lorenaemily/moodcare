@@ -19,8 +19,8 @@
             $caminho = "images/" . basename($nova_foto['name']);
             move_uploaded_file($_FILES['foto_perfil']['tmp_name'], $caminho);
         } else {
-            $stmt = $conexao->prepare("SELECT foto_usuario FROM perfil_usuario WHERE id_usuario = :id");
-            $stmt->bindParam(':id', $id);
+            $stmt = $conexao->prepare("SELECT foto_usuario FROM perfil_usuario WHERE id_usuario_perfil = :id");
+            $stmt->bindParam(':id', $id_usuario);
             $stmt->execute();
             $caminho = $stmt->fetchColumn();
         }
@@ -47,26 +47,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>atualizar perfil</title>
+    <link rel="stylesheet" href="styles/styleatualizarperfil.css">
 </head>
 <body>
-    <?php if($perfil){?>
-    <form method="POST" enctype="multipart/form-data">
-        <label for="foto_perfil">Foto de Perfil:</label><br>
-        <?php if (!empty($perfil['foto_usuario'])): ?>
-            <img src="<?php echo htmlspecialchars($perfil['foto_usuario']); ?>" alt="Foto de perfil" width="100"><br>
-        <?php endif; ?>
-        <input type="file" id="foto_perfil" name="foto_perfil"><br>
 
-        <label for="nome_usuario">Nome:</label><br>
-        <input type="text" id="nome_usuario" name="nome_usuario" value="<?php echo htmlspecialchars($perfil['nome_usuario'] ?? ''); ?>" required><br>
+    <div class="menulateral">
+        <h1> MoodCare </h1>
+        <ul>
+            <li>
+                <a href="http://localhost/MoodCare/telainicial.php">
+                    <img src="images/home.png" alt=""><p>Início</p>
+            </a>
+            </li>
+            <li>
+                <a href="http://localhost/MoodCare/cadastrodeemocoes.php">
+                    <img src="images/Vector.png" alt=""><p>Cadastrar<br>Emoções</p>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/MoodCare/perfildeusuario.php">
+                    <img src="images/perfil.png" alt=""><p>Perfil</p>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost/MoodCare/historicoemocional.php">
+                    <img src="images/relogio.png" alt=""><p>Histórico de<br>Emoções</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <img src="images/dicas.png" alt=""><p>Dicas</p>
+                </a>
+            </li>
+        </ul>
+        <div>
+            <img src="images/sair.png" alt="">
+            <a href="sair.php">Sair</a>
+        </div>
+    </div>    
 
-        <label for="meta">Meta:</label><br>
-        <input type="text" id="meta" name="meta" value="<?php echo htmlspecialchars($perfil['meta_usuario'] ?? ''); ?>"><br>
+    <div class="conteudo">
+        <h1>Perfil</h1>
 
-        <button type="submit">Atualizar Perfil</button>
-    </form>
-    <?php } else { ?>
-        <p>Perfil não encontrado.</p>
-    <?php } ?>
+        <div class="perfil-infos">
+
+            <?php if($perfil){?>
+            <form method="POST" enctype="multipart/form-data">
+                <?php if (!empty($perfil['foto_usuario'])): ?>
+                    <img src="<?php echo htmlspecialchars($perfil['foto_usuario']); ?>" alt="Foto de perfil" width="100"><br>
+                <?php endif; ?>
+                <input type="file" id="foto_perfil" name="foto_perfil"><br>
+
+                <input type="text" id="username" name="nome_usuario" value="<?php echo htmlspecialchars($perfil['nome_usuario'] ?? ''); ?>" required><br>
+
+                <label for="nome-meta">Meta:</label><br>
+                <div id="meta">
+                    <input type="text" name="meta" value="<?php echo htmlspecialchars($perfil['meta_usuario'] ?? ''); ?>"><br>
+                </div>
+
+                <button type="submit">Atualizar Perfil</button>
+
+            </form>
+            <?php } else { ?>
+                <p>Perfil não encontrado.</p>
+            <?php } ?>
+        </div>
+
+    </div>
 </body>
 </html>

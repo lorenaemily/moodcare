@@ -82,7 +82,7 @@
             <div id="registro-emocional">
                 <p>Descrição:</p>
                 <input type="text" id="registro" name="registro" >
-                <input type="submit">
+                <input type="submit" id="cadastrar" >
                 </form>
             </div>
 
